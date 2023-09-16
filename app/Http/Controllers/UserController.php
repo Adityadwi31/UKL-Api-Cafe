@@ -23,8 +23,10 @@ class UserController extends Controller
 
 
         $role = $user->role;
+        $id_user = $user->id_user;
+        $nama = $user->nama;
 
-        return response()->json(compact('token', 'role'));
+        return response()->json(compact('token', 'role' , 'id_user', 'nama'));
     }
     
     public function index()
