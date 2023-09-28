@@ -171,7 +171,7 @@ class TransaksiController extends Controller
 
     public function totalharga($id)
     {
-        $gettotal = Transaksi::where('id_meja', $id)->where('status', 'belum_bayar')->sum('total_harga');
+        $gettotal = Transaksi::where('id_keranjang', $id)->sum('total_harga');
         return response()->json($gettotal);
     }
 
