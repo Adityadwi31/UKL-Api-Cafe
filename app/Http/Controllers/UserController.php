@@ -11,9 +11,12 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
     public function login(Request $request)
     {
-        $token = Str::random(10);
+        $token = Str::random(120);
+
+        $jwt = 'ey' . $token;
 
         $user = User::where('email', $request->input('email'))->first();
 
@@ -21,12 +24,11 @@ class UserController extends Controller
             return response()->json(['message' => 'Password mu salah oi'], 401);
         }
 
-
         $role = $user->role;
         $id_user = $user->id_user;
         $nama = $user->nama;
 
-        return response()->json(compact('token', 'role' , 'id_user', 'nama'));
+        return response()->json(compact('jwt', 'role' , 'id_user', 'nama'));
     }
     
     public function index()

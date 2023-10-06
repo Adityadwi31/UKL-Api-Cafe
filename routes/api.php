@@ -71,3 +71,6 @@ Route::get('/totalharga/{id}',[TransaksiController::class,'totalharga']);
 Route::delete('/deletetransaksi/{id}',[TransaksiController::class,'destroy']);
 
 
+
+
+
